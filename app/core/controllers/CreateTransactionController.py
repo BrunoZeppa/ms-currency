@@ -3,7 +3,7 @@ from rest_framework.response import Response
 
 from ..models import Currency
 from ..tests import TestCurrency
-from .CurrencyController import CurrencyController
+from .CreateCurrencyController import CurrencyController
 
 
 class ChangeCurrencyController:
@@ -50,6 +50,6 @@ class ChangeCurrencyController:
 
                         }, status=status.HTTP_200_OK)
                 else:
-                    return Response({'result': 'cant fulfill request'}, status=status.HTTP_500_BAD_REQUEST)
+                    return Response({'result': 'cant fulfill request'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
         return Response({'result': 'we couldn’t found the currency'}, status=status.HTTP_404_NOT_FOUND)
