@@ -12,6 +12,7 @@ class CurrencySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Currency
+        fields = ('id_currency','name', 'exchange', 'fee_percentage', 'quantity')
         exclude = ('id_currency',)
 
 
@@ -22,6 +23,7 @@ class Track_Fee_Formatted_Serializer(serializers.Serializer):
     quote = serializers.CharField(max_length=4, allow_blank=False)
 
     class Meta:
+        model = Track_Fee
         fields = ('base', 'quote', 'money_request')
 
 
@@ -29,5 +31,4 @@ class setup_Serializer(serializers.Serializer):
     generate = serializers.BooleanField(required=True)
 
     class Meta:
-
         fields = ('generate' )

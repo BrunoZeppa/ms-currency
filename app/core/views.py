@@ -9,10 +9,10 @@ from .serializer import (
     CurrencySerializer, Track_Fee_Formatted_Serializer, setup_Serializer)
 
 
-from .controllers.CurrencyController import CurrencyController
-from .controllers.SetupController import SetupController
-from .controllers.CheckExchangeRateController import CheckExchangeRateController
-from .controllers.ChangeCurrencyController import ChangeCurrencyController, CurrencyController
+from .controllers.CreateCurrencyController import CurrencyController
+from .controllers.BulkCreateController import SetupController
+from .controllers.GetCurrencyController import CheckExchangeRateController
+from .controllers.CreateTransactionController import ChangeCurrencyController, CurrencyController
 
 
 class SetupView(GenericAPIView):
