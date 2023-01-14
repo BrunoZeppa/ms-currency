@@ -4,8 +4,8 @@ from .models import Currency, Track_Fee
 
 class CurrencySerializer(serializers.ModelSerializer):
 
-    id_currency = serializers.AutoField(primary_key=True)
-    name = serializers.CharField(max_length=4)
+    id_currency = serializers.AutoField()
+    name = serializers.CharField()
     exchange = serializers.FloatField()
     fee_percentage = serializers.FloatField()
     quantity = serializers.FloatField()
