@@ -1,6 +1,5 @@
 from django.test import TestCase
 
-# Create your tests here.
 from django.test import TestCase
 from .models import Currency, Track_Fee
 from django.db import transaction
@@ -13,13 +12,13 @@ class TestCurrency(TestCase):
         Currency.objects.create(
             name='USD'.upper(),
             exchange=1,
-            fee_percentage=0.0015,
+            fee_percentage=0.0020,
             quantity=1000
         )
         Currency.objects.create(
             name='eur'.upper(),
             exchange=1.18,
-            fee_percentage=0.01,
+            fee_percentage=0.016,
             quantity=1000
         )
         Currency.objects.create(

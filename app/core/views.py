@@ -46,8 +46,6 @@ class Change_currencyView(APIView):
 
         return ChangeCurrencyController.exchange(request)
 
-# View encargada de listar todas las transacciones de cambios de divisas
-
 
 class TrackFeeView(GenericAPIView):
 

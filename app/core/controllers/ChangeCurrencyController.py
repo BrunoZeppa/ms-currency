@@ -10,12 +10,11 @@ class ChangeCurrencyController:
 
     def exchange(request):
         
-
         change_currency_data = request.data
         base_upper = change_currency_data['base'].upper()
         quote_upper = change_currency_data['quote'].upper()
 
-        # is_currency_exists regresa valor booleano en caso de que exista o no la moneda
+       
         if CurrencyController.is_currency_exists(base_upper) and CurrencyController.is_currency_exists(quote_upper):
             base = Currency.objects.get(name=base_upper)
             quote = Currency.objects.get(name=quote_upper)
@@ -24,15 +23,12 @@ class ChangeCurrencyController:
             if money_request <= 0:
                 return Response({'result': 'Money request couldn’t be 0'}, status=status.HTTP_200_OK)
             else:
-                # calc_money_to_fulfill_request: método testeado para validar
-                # si contamos con la capacidad de cambiar la divisa
+               
+
                 money_to_fulfill_request = TestCurrency.calc_money_to_fulfill_request(
                     money_request, base, quote)
-                # calc_money_to_fulfill_request: regresa una lista
-                # [0]Moneda Base
-                # [1]Moneda Cotización
-                # [2]True si podemos hacer el cambio o False si no
-                # [3]Solicitud de dinero a moneda de cotización
+                
+
                 if money_to_fulfill_request[2]:
                     conversion_rate = money_to_fulfill_request[3]
                     track_fee = TestCurrency.create_track_fee(
