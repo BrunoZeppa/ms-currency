@@ -27,6 +27,8 @@ class CurrencyController:
         else:
             return Response({'result': 'success', 'new_currency': serializer.data}, status=status.HTTP_201_CREATED)
 
+
+
     def list_or_read_currency(request, name):
         if name:
             name_upper = name.upper()
