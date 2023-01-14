@@ -4,9 +4,14 @@ from .models import Currency, Track_Fee
 
 class CurrencySerializer(serializers.ModelSerializer):
 
+    id_currency = serializers.AutoField(primary_key=True)
+    name = serializers.CharField(max_length=4)
+    exchange = serializers.FloatField()
+    fee_percentage = serializers.FloatField()
+    quantity = serializers.FloatField()
+
     class Meta:
         model = Currency
-
         exclude = ('id_currency',)
 
 
@@ -16,13 +21,11 @@ class Track_Fee_Formatted_Serializer(serializers.Serializer):
     base = serializers.CharField(max_length=4, allow_blank=False)
     quote = serializers.CharField(max_length=4, allow_blank=False)
 
-
     class Meta:
         fields = ('base', 'quote', 'money_request')
 
 
 class setup_Serializer(serializers.Serializer):  
-
     generate = serializers.BooleanField(required=True)
 
     class Meta:

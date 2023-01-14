@@ -21,7 +21,7 @@ class ChangeCurrencyController:
             money_request = change_currency_data['money_request']
 
             if money_request <= 0:
-                return Response({'result': 'Money request couldn’t be 0'}, status=status.HTTP_200_OK)
+                return Response({'result': 'Money request couldn’t be 0'}, status=status.HTTP_400_FAIL)
             else:
                
 
@@ -50,6 +50,6 @@ class ChangeCurrencyController:
 
                         }, status=status.HTTP_200_OK)
                 else:
-                    return Response({'result': 'cant fulfill request'}, status=status.HTTP_200_OK)
+                    return Response({'result': 'cant fulfill request'}, status=status.HTTP_500_BAD_REQUEST)
 
         return Response({'result': 'we couldn’t found the currency'}, status=status.HTTP_404_NOT_FOUND)
